@@ -5,3 +5,11 @@
 .card {
     min-height: 600px;
 }
+
+.course {
+    transition: .5s;
+}
+.course:hover {
+    transform: translateY(-3%);
+    transition: .5s;
+}
