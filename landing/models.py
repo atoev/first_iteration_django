@@ -17,3 +17,11 @@ class Teacher(models.Model):
 
     def __str__(self):
         return self.full_name
+
+
+class Application(models.Model):
+    client_name = models.CharField('Имя', max_length=255)
+    client_phone_number = models.CharField('Номер телефона', max_length=255)
+
+    def __str__(self):
+        return f"{self.client_name} (+{self.client_phone_number})"
