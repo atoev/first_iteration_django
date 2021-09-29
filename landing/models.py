@@ -21,7 +21,9 @@ class Teacher(models.Model):
 
 class Application(models.Model):
     client_name = models.CharField('Имя', max_length=255)
+    client_last_name = models.CharField('Фамилия', max_length=255, null=True)
+    course = models.ForeignKey('Course', on_delete=models.CASCADE, null=True)
     client_phone_number = models.CharField('Номер телефона', max_length=255)
 
     def __str__(self):
-        return f"{self.client_name} (+{self.client_phone_number})"
+        return f"{self.client_name} {self.client_last_name} (+{self.client_phone_number})"

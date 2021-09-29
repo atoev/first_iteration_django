@@ -15,7 +15,9 @@ def about(request, pk):
     form = ApplicationForm(request.POST or None)
     is_success = False
     if request.method == 'POST' and form.is_valid():
+        instance = form.save(commit=False)
         is_success = True
+        instance.course = course
         form.save()
         form = ApplicationForm()
     return render(request, 'about.html', {'course': course, 'form': form, 'is_success': is_success})
